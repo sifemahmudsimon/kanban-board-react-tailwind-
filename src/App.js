@@ -1,24 +1,36 @@
-import logo from './logo.svg';
+import { useEffect, useState } from 'react';
 import './App.css';
+import CreateTask from './components/CreateTask';
+import ListTasks from './components/ListTasks';
+import { Toaster } from 'react-hot-toast';
+
+import { DndProvider } from 'react-dnd';
+import { HTML5Backend } from 'react-dnd-html5-backend';
+
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faSquareMinus } from '@fortawesome/free-regular-svg-icons';
+
+
+// Add the icon to the library
+library.add(faSquareMinus);
 
 function App() {
+
+  const [tasks, setTasks] = useState([]);
+
+  useEffect(() => {
+    setTasks(JSON.parse(localStorage.getItem("tasks")))
+  }, [])
+
+  console.log("Tasks", tasks)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <DndProvider backend={HTML5Backend}>
+      <Toaster />
+      <div className="bg-white w-screen h-screen flex flex-col items-center p-3 pt-32 gap-16">
+        <CreateTask tasks={tasks} setTasks={setTasks} />
+        <ListTasks tasks={tasks} setTasks={setTasks} />
+      </div>
+    </DndProvider >
   );
 }
 
