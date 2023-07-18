@@ -24,7 +24,7 @@ const CreateTask = ({ tasks, setTasks }) => {
       return list;
     })
 
-    toast.success("Task Created");
+    toast.success("Task created");
     setTask({
       id: '',
       name: '',
