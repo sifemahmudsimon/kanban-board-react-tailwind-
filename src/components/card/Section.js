@@ -2,7 +2,7 @@ import React from 'react'
 import Header from './Header'
 import Task from './Task'
 import toast from 'react-hot-toast'
-import { useDrag, useDrop } from 'react-dnd'
+import { useDrop } from 'react-dnd'
 
 import './Section.css'
 

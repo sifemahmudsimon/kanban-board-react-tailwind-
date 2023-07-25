@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import Section from './card/Section'
-import Header from './card/Header'
-import Task from './card/Task'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 
