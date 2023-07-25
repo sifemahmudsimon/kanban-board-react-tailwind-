@@ -9,7 +9,7 @@ const ListTasks = ({ tasks, setTasks }) => {
   const [inProgress, setInProgress] = useState([])
   const [closed, setClosed] = useState([])
 
-  const [statuses, setStatuses] = useState(["todo", "inprogress","closed"]);
+  const [statuses] = useState(["todo", "inprogress","closed"]);
 
   useEffect(() => {
     const filter_Todos = tasks.filter(task => task.status === "todo");
