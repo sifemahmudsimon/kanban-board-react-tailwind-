@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import Section from './card/Section'
+import Header from './card/Header'
+import Task from './card/Task'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 
 const ListTasks = ({ tasks, setTasks }) => {
@@ -7,6 +10,8 @@ const ListTasks = ({ tasks, setTasks }) => {
   const [todos, setTodos] = useState([])
   const [inProgress, setInProgress] = useState([])
   const [closed, setClosed] = useState([])
+
+  const [statuses, setStatuses] = useState(["todo", "inprogress","closed"]);
 
   useEffect(() => {
     const filter_Todos = tasks.filter(task => task.status === "todo");
@@ -18,10 +23,14 @@ const ListTasks = ({ tasks, setTasks }) => {
     setClosed(filter_Closed);
 
   }, [tasks])
-
-  const statuses = ["todo", "inprogress", "closed"]
+  
+  const handleClick = () => {
+    
+  };
+  
 
   return (
+    
     <div className='flex gap-16'>
       {statuses.map((status, index) => (
         <Section
@@ -33,6 +42,9 @@ const ListTasks = ({ tasks, setTasks }) => {
           inProgress={inProgress}
           closed={closed} />
       ))}
+     <button className='w-64 rounded-md p-2 bg-slate-50 hover:bg-slate-100' onClick={handleClick}>
+     <FontAwesomeIcon icon="fa-regular fa-square-plus" size='3x' color='#e5e5e5'/>
+     </button>
     </div>
   )
 }

@@ -8,11 +8,10 @@ import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faSquareMinus } from '@fortawesome/free-regular-svg-icons';
-
+import { faSquareMinus,faSquarePlus } from '@fortawesome/free-regular-svg-icons';
 
 // Add the icon to the library
-library.add(faSquareMinus);
+library.add(faSquareMinus,faSquarePlus);
 
 function App() {
 

@@ -44,7 +44,7 @@ const CreateTask = ({ tasks, setTasks }) => {
         onChange={e=>setTask({ ...task, id: uuidv4(), name: e.target.value })}  // set up uuid by "npm install uuid"
       />
       <button className="bg-cyan-500 rounded-md px-4 h-12 text-white" type='submit'>
-        Create
+        Create Task
       </button>
     </form>
   );
